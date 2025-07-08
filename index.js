@@ -12,6 +12,9 @@ const app = express();
 
 
 initializeDatabase();
+
+app.use(cors());
+
 app.use(express.json());
 
 async function getAllHotel(){
