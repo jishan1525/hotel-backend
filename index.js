@@ -13,9 +13,15 @@ const app = express();
 
 initializeDatabase();
 
-app.use(cors());
 
 app.use(express.json());
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 async function getAllHotel(){
     try {
@@ -197,10 +203,4 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
 
-app.use(cors(corsOptions));
